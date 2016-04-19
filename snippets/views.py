@@ -15,7 +15,7 @@ def snippet_list(request, format = None):
     if request.method == 'GET':
         snippets = Snippet.objects.all()
         serializer = SnippetSerializer(snippets, many=True)
-        return Response(serializer.data)
+        return Response({"message":"Vse OK!", "data":serializer.data})
 
     elif request.method == 'POST':
         serializer = SnippetSerializer(data=request.data)
